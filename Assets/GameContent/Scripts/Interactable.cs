@@ -15,4 +15,10 @@ public class Interactable : MonoBehaviour
     {
         
     }
+
+    // When the object is released, check if it should interact with a receiver
+    void Released()
+    {
+        //if touching the receiver -> Receiver.ObjectReleased(this)
+    }
 }
