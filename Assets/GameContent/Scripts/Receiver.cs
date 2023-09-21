@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Receiver : MonoBehaviour
 {
+    public string option1;
+    public string option2;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +20,9 @@ public class Receiver : MonoBehaviour
         
     }
 
-    void ObjectReleased(GameObject interactable)
+    void OnCollisionEnter(Collision other)
     {
-        //If something else is attached, detach it (or disable the other object, depending on how we want to do things)
-
-        //Check interactable's tag/name
+        //Check other's tag/name
         //Based on tag name call TriggerChange1 or TriggerChange2
         //TriggerChange1 and TriggerChange2 could call into a different script that can be created based on what each receiver wants to do?
         //We could store a reference to two other scripts/objects as change1 and change2 and assign those on the receiver prefab so we can customize behavior
