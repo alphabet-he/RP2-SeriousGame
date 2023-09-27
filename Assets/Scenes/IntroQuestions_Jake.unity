@@ -416,6 +416,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 89.035, y: 0, z: 0}
+--- !u!1 &530696665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 848801868536763060, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
+  m_PrefabInstance: {fileID: 2027917987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &530696669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530696665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f83fa90ca9fe1f468c8df2514b443b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  question: A cat is crossing a 2-lane highway, do you
+  option1: 1) Pull over and carry it to safety
+  option2: 2) Leave it, your safety is more important
+  response: 0
+--- !u!114 &530696670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530696665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f83fa90ca9fe1f468c8df2514b443b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  question: A turtle is crossing a 2-lane highway, do you
+  option1: 1) Pull over and carry it to safety
+  option2: 2) Leave it, your safety is more important
+  response: 0
 --- !u!1 &1056701640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,26 +1600,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 846401137376703290, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 846401137376703290, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 846401137376703290, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -3.53
-      objectReference: {fileID: 0}
     - target: {fileID: 848801868536763060, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_Name
       value: QuestionContainer
       objectReference: {fileID: 0}
-    - target: {fileID: 2548626591371201940, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+    - target: {fileID: 6619661345608871164, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
+      propertyPath: questions.Array.size
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6619661345608871164, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
+      propertyPath: questions.Array.data[0]
+      value: 
+      objectReference: {fileID: 530696670}
+    - target: {fileID: 6619661345608871164, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
+      propertyPath: questions.Array.data[1]
+      value: 
+      objectReference: {fileID: 530696669}
     - target: {fileID: 7621650561047105378, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1625,7 +1658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7621650561047105378, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.3
+      value: 3.1071
       objectReference: {fileID: 0}
     - target: {fileID: 7621650561047105378, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1645,11 +1678,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7621650561047105378, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.24
+      value: 0.082588
       objectReference: {fileID: 0}
     - target: {fileID: 7621650561047105378, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.46
+      value: 1.329
       objectReference: {fileID: 0}
     - target: {fileID: 7621650561047105378, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1667,6 +1700,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 848801868536763060, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 530696670}
+    - targetCorrespondingSourceObject: {fileID: 848801868536763060, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 530696669}
     - targetCorrespondingSourceObject: {fileID: 848801868536763060, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
