@@ -32,7 +32,7 @@ public class QuestionManager : MonoBehaviour
             float fadeAmount = textColor.a - (Time.deltaTime);
 
             textColor = new Color(textColor.r, textColor.g, textColor.b, fadeAmount);
-            gameObject.GetComponent<TextMeshPro>().color = textColor;
+            gameObject.GetComponentInChildren<TextMeshPro>().color = textColor;
 
             if (fadeAmount <=0) 
             {
@@ -42,7 +42,7 @@ public class QuestionManager : MonoBehaviour
                     GameData.questions = questions;
 
                     //Move to new scene
-                    SceneManager.LoadScene("Anastasiia");
+                    SceneManager.LoadScene("GameScene");
                 }
                 else
                 {
@@ -83,7 +83,7 @@ public class QuestionManager : MonoBehaviour
         //Send Option 1 to the results
         if ( questionNum < questions.Count ) 
         {
-            questions[questionNum].response = 1;
+            questions[questionNum].questionResponse = 1;
         }
 
         NextQuestion();
@@ -94,7 +94,7 @@ public class QuestionManager : MonoBehaviour
         //Send Option 2 to the results
         if (questionNum < questions.Count)
         {
-            questions[questionNum].response = 2;
+            questions[questionNum].questionResponse = 2;
         }
 
         NextQuestion();
