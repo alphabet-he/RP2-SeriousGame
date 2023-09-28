@@ -9,21 +9,38 @@ public class HandChanger : MonoBehaviour, IChanger
     public Vector3 endPosition;
     Vector3 startPosition;
 
+    int questionNum = 0;
     private bool shouldMoveOut = true;
     private bool shouldMoveBack = false;
+    int hitCount = 0;
+    int feedCount = 0;
+    GameObject heldItem;
 
     void Start()
     {
         startPosition = transform.position;
     }
 
-    public void TriggerChange1(GameObject obj)
+    public bool TriggerChange1(GameObject obj)
     {
         //Hit by Hammer
-        gameObject.AddComponent<Rigidbody>();      
+        hitCount++;
+        GameObject.Destroy(obj);
+
+        if(hitCount >= 3)
+        {
+            gameObject.AddComponent<Rigidbody>();
+            return true;
+        }
+        if(hitCount + feedCount >= 3)
+        {
+            GameData.questions[questionNum].roomPct = hitCount / feedCount;
+            return true;
+        }
+        return false;
     }
 
-    public void TriggerChange2(GameObject obj)
+    public bool TriggerChange2(GameObject obj)
     {
         //Given Lollipop
         //This makes the lollipop part of the hand and removes interactability
@@ -32,8 +49,16 @@ public class HandChanger : MonoBehaviour, IChanger
         //Get the child lollipop attach point and place it there
         obj.transform.position = gameObject.GetComponentsInChildren<Transform>()[0].position;
         obj.transform.SetParent(gameObject.transform, true);
+        heldItem = obj;
 
         shouldMoveBack = true;
+
+        if (hitCount + feedCount >= 3)
+        {
+            GameData.questions[questionNum].roomPct = hitCount / feedCount;
+            return true;
+        }
+        return false;
     }
 
     // Update is called once per frame
@@ -70,6 +95,8 @@ public class HandChanger : MonoBehaviour, IChanger
         else
         {
             shouldMoveBack = false;
+            shouldMoveOut = true;
+            GameObject.Destroy(heldItem);
         }
     }
 }
