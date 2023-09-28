@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Robe : MonoBehaviour
@@ -17,10 +18,14 @@ public class Robe : MonoBehaviour
     private int health;
     private bool triggered;
     private bool selectedByRDevice;
+    private bool isCuttingR;
+    private bool isCuttingL;
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        isCuttingL = false;
+        isCuttingR = false;
     }
 
     // Update is called once per frame
@@ -28,7 +33,7 @@ public class Robe : MonoBehaviour
     {
         if (triggered) // if the scissor is upon the robe
         {
-            Debug.Log("Bool triggered is true!");
+            //Debug.Log("Bool triggered is true!");
             if (scissors.GetComponent<XRGrabInteractable>().isSelected) // if the scissor is selected by interactor
             {
                 // check which hand is holding it
@@ -50,21 +55,61 @@ public class Robe : MonoBehaviour
                     return;
                 }
 
+                //Debug.Log(selectedByRDevice);
 
                 // test whether the device of the hand is pushed trigger button
+                
+                if(!selectedByRDevice) // left hand hold the scissors
                 {
-                    if(!selectedByRDevice)
+                    GameController.instance.LController.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
+                    if(triggerValue > 0.2f)
                     {
-
+                        
+                        isCuttingL = true;
                     }
                     else
                     {
-
+                        if (isCuttingL) // originally pressing trigger button, now released
+                        {
+                            isCuttingL = false;
+                            Debug.Log("Cut robe by left hand!");
+                            Cut();
+                        }
                     }
                 }
+                else // right
+                {
+                    GameController.instance.RController.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
+                    if (triggerValue > 0.2f)
+                    {
+                        
+                        isCuttingR = true;
+                    }
+                    else
+                    {
+                        if (isCuttingR) // originally pressing trigger button, now released
+                        {
+                            isCuttingR = false;
+                            Debug.Log("Cut robe by right hand!");
+                            Cut();
+                        }
+                    }
+                }
+                
             }
         }
         
+    }
+
+    void Cut()
+    {
+        health--;
+        if(health <= 0)
+        {
+            gameObject.SetActive(false);
+            SpiderRoomController.instance.CutOutRobe();
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)

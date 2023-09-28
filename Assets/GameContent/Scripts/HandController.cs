@@ -26,18 +26,38 @@ public class HandController : MonoBehaviour
         if(devices.Count > 0 )
         {
             targetDevice = devices[0];
+            
         }
 
-        spawnedHandModel = Instantiate(handModelPrefab, transform);
-        spawnedHandModel.SetActive(true);
-        handAnimator = spawnedHandModel.GetComponent<Animator>();
+        if(targetDevice != null )
+        {
+            spawnedHandModel = Instantiate(handModelPrefab, transform);
+            spawnedHandModel.SetActive(true);
+            handAnimator = spawnedHandModel.GetComponent<Animator>();
+
+            if (controllerCharacteristics.Equals(InputDeviceCharacteristics.Left))
+            {
+                GameController.instance.LController = targetDevice;
+            }
+
+            else if (controllerCharacteristics.Equals(InputDeviceCharacteristics.Right))
+            {
+                GameController.instance.RController = targetDevice;
+            }
+        }
+
+        
         
     }
     void UpdateHandAnimation()
     {
         if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
         {
+            
             handAnimator.SetFloat("Trigger", triggerValue);
+            //Debug.Log(triggerValue);
+            //Debug.Log(handAnimator.GetFloat("Trigger"));
+
         }
         else
         {
@@ -56,7 +76,14 @@ public class HandController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+/*        if (!targetDevice.isValid)
+        {
+            TryInitialize();
+        }*/
+
         UpdateHandAnimation();
+
         /*        if (!targetDevice.isValid)
                 {
                     TryInitialize();
