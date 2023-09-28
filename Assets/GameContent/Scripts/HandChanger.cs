@@ -11,7 +11,6 @@ public class HandChanger : MonoBehaviour, IChanger
 
     private bool shouldMoveOut = true;
     private bool shouldMoveBack = false;
-    FixedJoint fixedJoint;
 
     void Start()
     {
@@ -21,7 +20,7 @@ public class HandChanger : MonoBehaviour, IChanger
     public void TriggerChange1(GameObject obj)
     {
         //Hit by Hammer
-        shouldMoveBack = true;        
+        gameObject.AddComponent<Rigidbody>();      
     }
 
     public void TriggerChange2(GameObject obj)

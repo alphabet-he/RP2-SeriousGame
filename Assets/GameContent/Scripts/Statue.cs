@@ -15,4 +15,9 @@ public class Statue : MonoBehaviour
     {
         
     }
+
+    public void Notify()
+    {
+        //Get the game data and update the statue appearance
+    }
 }

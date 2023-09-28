@@ -6,6 +6,8 @@ public class Receiver : MonoBehaviour
 {
     public string option1;
     public string option2;
+    public int questionNum;
+    public Statue statue;
 
     private IChanger changer;
 
@@ -17,17 +19,19 @@ public class Receiver : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Check other's tag/name, based on tag name call TriggerChange1 or TriggerChange2
+        //Check other's tag/name, based on tag/name call TriggerChange1 or TriggerChange2
         //TriggerChange1 and TriggerChange2 call into a different script that can be created based on what each receiver wants to do
         if (other.gameObject.name == option1)
         {
             changer.TriggerChange1(other.gameObject);
-            //NotifyStatue(change1)
+            GameData.questions[questionNum].roomResponse = 1;
+            statue.Notify();
         }
         else if (other.gameObject.name == option2)
         {
             changer.TriggerChange2(other.gameObject);
-            //NotifyStatue(change2)
+            GameData.questions[questionNum].roomResponse = 2;
+            statue.Notify();
         }
     }
 }
