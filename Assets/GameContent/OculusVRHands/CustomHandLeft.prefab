@@ -808,8 +808,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 414912}
-  - component: {fileID: 5460176}
   - component: {fileID: 2016424875179039026}
+  - component: {fileID: 985887120073204326}
   m_Layer: 0
   m_Name: CustomHandLeft
   m_TagString: Untagged
@@ -833,33 +833,6 @@ Transform:
   - {fileID: 4394205987547574}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!54 &5460176
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143668}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2016424875179039026
 Animator:
   serializedVersion: 5
@@ -881,6 +854,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &985887120073204326
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143668}
+  serializedVersion: 4
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &144252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,7 +1982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4953414053671422}
   - component: {fileID: 95022414942611548}
-  - component: {fileID: 1869348159812384573}
+  - component: {fileID: 4804561633564306471}
   m_Layer: 0
   m_Name: l_hand_skeletal_lowres
   m_TagString: Untagged
@@ -2028,68 +2028,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1869348159812384573
-MonoBehaviour:
+--- !u!65 &4804561633564306471
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367450344401422}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5560715a2555c14aaaf221e5ba03e46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gripAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Grip
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 20b291d8-826e-4447-b5da-75326097301a
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -5620742781662970839, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  triggerAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Trigger
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: e2f3ad83-449b-4295-a1bc-0874d849d8cf
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -3345412507119511582, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  indexAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Index
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 5846654c-993d-4783-95ab-0400acea7295
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 447714702165060157, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  thumbAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Thumb
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: eebf7df7-8f24-4fc9-84bb-1bf3ed521929
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 4780970664627288057, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  animator: {fileID: 95022414942611548}
-  speed: 6
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 0.05, z: 0.151}
+  m_Center: {x: -0.03, y: 0.035, z: 0}
 --- !u!1 &1499970328959474
 GameObject:
   m_ObjectHideFlags: 0
