@@ -3015,6 +3015,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49e561ca3cd29e4ab0cb0e269a1304d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spiderPrefab: {fileID: 3001545524477895873, guid: 342ad7d6e4333b34e939c578a617de23, type: 3}
+  spiderInitLoc: {x: -10.84, y: 0.37, z: 6.65}
+  spiderMoveSpeed: {x: 0, y: 0, z: -0.65}
 --- !u!1 &1746416116
 GameObject:
   m_ObjectHideFlags: 0

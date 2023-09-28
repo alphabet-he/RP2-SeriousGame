@@ -104,6 +104,7 @@ public class Robe : MonoBehaviour
     void Cut()
     {
         health--;
+        SpiderRoomController.instance.CutOnce();
         if(health <= 0)
         {
             gameObject.SetActive(false);
