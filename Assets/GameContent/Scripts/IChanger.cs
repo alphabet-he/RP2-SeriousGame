@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IChanger
 {
-    void TriggerChange1(GameObject obj);
-    void TriggerChange2(GameObject obj);
+    bool TriggerChange1(GameObject obj);
+    bool TriggerChange2(GameObject obj);
 }

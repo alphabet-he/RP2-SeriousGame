@@ -10,6 +10,7 @@ public class Question : MonoBehaviour
     public string option2;
     public int questionResponse;
     public int roomResponse;
+    public float roomPct;
 
     public override string ToString()
     {

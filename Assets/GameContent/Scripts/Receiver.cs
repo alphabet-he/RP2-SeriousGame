@@ -23,15 +23,19 @@ public class Receiver : MonoBehaviour
         //TriggerChange1 and TriggerChange2 call into a different script that can be created based on what each receiver wants to do
         if (other.gameObject.name == option1)
         {
-            changer.TriggerChange1(other.gameObject);
-            GameData.questions[questionNum].roomResponse = 1;
-            statue.Notify();
+            if(changer.TriggerChange1(other.gameObject))
+            {
+                GameData.questions[questionNum].roomResponse = 1;
+                statue.Notify();
+            }
         }
         else if (other.gameObject.name == option2)
         {
-            changer.TriggerChange2(other.gameObject);
-            GameData.questions[questionNum].roomResponse = 2;
-            statue.Notify();
+            if(changer.TriggerChange2(other.gameObject))
+            {
+                GameData.questions[questionNum].roomResponse = 2;
+                statue.Notify();
+            }
         }
     }
 }
