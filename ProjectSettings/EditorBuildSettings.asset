@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 55daccc09a3b69647bbab145b54a3ab3
+  - enabled: 1
+    path: Assets/Scenes/IntroQuestions_Jake.unity
+    guid: 31d6540635a5c5d4a8520b0412b714db
+  - enabled: 1
+    path: Assets/Scenes/Anastasiia.unity
+    guid: 9c19e5535d27f0e4ab7783cc04d12a5b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 0cefc46c68b9e674a920864e9d5e7a47, type: 2}
