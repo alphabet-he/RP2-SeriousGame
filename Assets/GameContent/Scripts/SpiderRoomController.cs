@@ -67,4 +67,9 @@ public class SpiderRoomController : MonoBehaviour
     {
         Debug.Log("Dog saved!");
     }
+
+    void TeleportBack()
+    {
+
+    }
 }

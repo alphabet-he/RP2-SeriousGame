@@ -10,6 +10,15 @@ public class Teleport : MonoBehaviour
     public Vector3 RoomTwoTeleport;
     public Vector3 RoomTwoRotation;
 
+    Vector3 OriginPos;
+    Vector3 OriginRot;
+
+    private void Start()
+    {
+        OriginPos = transform.position;
+        OriginRot = transform.eulerAngles;
+    }
+
     void MovePosition(Vector3 position)
     {
         gameObject.transform.position = position;
@@ -30,5 +39,11 @@ public class Teleport : MonoBehaviour
     {
         MovePosition(RoomTwoTeleport);
         MoveRotation(RoomTwoRotation);
+    }
+
+    public void ToOrigin()
+    {
+        MovePosition(OriginPos);
+        MoveRotation(OriginRot);
     }
 }

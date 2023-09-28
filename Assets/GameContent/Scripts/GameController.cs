@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
+
     InputDevice rController;
     InputDevice lController;
 
@@ -40,4 +41,5 @@ public class GameController : MonoBehaviour
     {
         
     }
+
 }
