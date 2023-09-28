@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Spider_walk_cycle 0
-  m_Speed: 1.5
+  m_Speed: 5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5142980161189184605}
@@ -82,7 +82,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7428982936855952740}
-    m_Position: {x: 360, y: 130, z: 0}
+    m_Position: {x: 290, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8106063311915735157}
     m_Position: {x: 290, y: 20, z: 0}
@@ -126,7 +126,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Spider_walk_cycle
-  m_Speed: 1.5
+  m_Speed: 5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1960057172106572474}
