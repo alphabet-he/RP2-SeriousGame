@@ -6,19 +6,23 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandChanger : MonoBehaviour, IChanger
 {
+    public Quaternion handRotation;
     public Vector3 endPosition;
     Vector3 startPosition;
 
     int questionNum = 0;
     private bool shouldMoveOut = true;
     private bool shouldMoveBack = false;
+    private bool isHit = false;
     int hitCount = 0;
     int feedCount = 0;
     GameObject heldItem;
+    int handAnswer = 1;
 
     void Start()
     {
         startPosition = transform.position;
+        handAnswer = GameData.questions[0].questionResponse;
     }
 
     public bool TriggerChange1(GameObject obj)
@@ -27,22 +31,27 @@ public class HandChanger : MonoBehaviour, IChanger
         hitCount++;
         GameObject.Destroy(obj);
 
-        if(hitCount >= 3)
+        if (hitCount >= 3)
         {
             gameObject.AddComponent<Rigidbody>();
+            GameData.questions[questionNum].roomPct = GetRoomPercent();
             return true;
         }
-        if(hitCount + feedCount >= 3)
-        {
-            GameData.questions[questionNum].roomPct = hitCount / feedCount;
-            return true;
-        }
+
+        isHit = true;
+        Invoke(nameof(StopHandHit), .5f);
+
         return false;
     }
 
     public bool TriggerChange2(GameObject obj)
     {
+        if(hitCount >= 3)
+        {
+            return false;
+        }
         //Given Lollipop
+        feedCount++;
         //This makes the lollipop part of the hand and removes interactability
         GameObject.Destroy(obj.GetComponent<XRGrabInteractable>());
         GameObject.Destroy(obj.GetComponent<Rigidbody>());
@@ -53,12 +62,27 @@ public class HandChanger : MonoBehaviour, IChanger
 
         shouldMoveBack = true;
 
-        if (hitCount + feedCount >= 3)
+        if (feedCount >= 3)
         {
-            GameData.questions[questionNum].roomPct = hitCount / feedCount;
+            GameData.questions[questionNum].roomPct = GetRoomPercent();
             return true;
         }
         return false;
+    }
+
+    float GetRoomPercent()
+    {
+        //The percentage of the time that they do they say they'll do is
+        //the amount of times they chose their option out of the total actions they took
+        //Don't hurt the hand will be 1
+        if(handAnswer == 1)
+        {
+            return (float)feedCount / (float)(feedCount + hitCount);
+        }
+        else
+        {
+            return (float)hitCount / (float)(feedCount + hitCount);
+        }
     }
 
     // Update is called once per frame
@@ -71,6 +95,10 @@ public class HandChanger : MonoBehaviour, IChanger
         else if (shouldMoveBack)
         {
             MoveHandBack();
+        }
+        if(isHit)
+        {
+            MoveHandHit();
         }
     }
 
@@ -94,9 +122,24 @@ public class HandChanger : MonoBehaviour, IChanger
         }
         else
         {
+            Debug.Log(feedCount);
             shouldMoveBack = false;
-            shouldMoveOut = true;
+            if(feedCount < 3)
+            {
+                shouldMoveOut = true;
+            }
             GameObject.Destroy(heldItem);
         }
+    }
+
+    void MoveHandHit()
+    {
+        transform.rotation = Random.rotation;
+    }
+
+    void StopHandHit()
+    {
+        transform.rotation = handRotation;
+        isHit = false;
     }
 }

@@ -21,7 +21,7 @@ public class Receiver : MonoBehaviour
     {
         //Check other's tag/name, based on tag/name call TriggerChange1 or TriggerChange2
         //TriggerChange1 and TriggerChange2 call into a different script that can be created based on what each receiver wants to do
-        if (other.gameObject.name == option1)
+        if (other.gameObject.tag == option1)
         {
             if(changer.TriggerChange1(other.gameObject))
             {
@@ -29,7 +29,7 @@ public class Receiver : MonoBehaviour
                 statue.Notify();
             }
         }
-        else if (other.gameObject.name == option2)
+        else if (other.gameObject.tag == option2)
         {
             if(changer.TriggerChange2(other.gameObject))
             {
