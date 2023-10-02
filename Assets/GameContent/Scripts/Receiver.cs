@@ -14,7 +14,6 @@ public class Receiver : MonoBehaviour
     void Start()
     {
         changer = gameObject.GetComponent<IChanger>();
-        Debug.Log(changer);
     }
 
     private void OnTriggerEnter(Collider other)

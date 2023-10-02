@@ -29,6 +29,10 @@ public class HandChanger : MonoBehaviour, IChanger
     {
         //Hit by Hammer
         hitCount++;
+        if(obj.transform.parent.transform.parent != null)
+        {
+            GameObject.Destroy(obj.transform.parent.transform.parent.gameObject);
+        }
         GameObject.Destroy(obj);
 
         if (hitCount >= 3)
@@ -104,8 +108,11 @@ public class HandChanger : MonoBehaviour, IChanger
 
     void MoveHandOut()
     {
+        Debug.Log(endPosition);
+        //Debug.Log(startPosition);
         if (transform.position != endPosition)
         {
+            Debug.Log(Vector3.MoveTowards(transform.position, endPosition, /*movementSpeed * */Time.deltaTime));
             transform.position = Vector3.MoveTowards(transform.position, endPosition, /*movementSpeed * */Time.deltaTime);
         }
         else
