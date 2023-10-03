@@ -433,11 +433,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f83fa90ca9fe1f468c8df2514b443b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  question: A sketchy stranger appears nearby, do you
-  option1: 1) Defend yourself (fight or flight)
-  option2: 2) Strike up a friendly conversation
+  question: A young lone wolf comes near your campfire as you eat some delicious
+    fried chicken. What do you do?
+  option1: 1) Scare it away
+  option2: 2) Throw it a bone
   questionResponse: 0
   roomResponse: 0
+  roomPct: 0
 --- !u!114 &530696670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,11 +452,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f83fa90ca9fe1f468c8df2514b443b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  question: A turtle is crossing a 2-lane highway, do you
-  option1: 1) Pull over and carry it to safety
-  option2: 2) Leave it, your safety is more important
+  question: A snake has cornered your best friend's pet hamster. What do you do?
+  option1: 1) Pull the snake to let the hamster get away, and risk being bit
+  option2: 2) Leave the hamster, your safety is more important
   questionResponse: 0
   roomResponse: 0
+  roomPct: 0
 --- !u!1 &1056701640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,15 +1607,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 846401137376703290, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -28.55
+      value: -4.84
       objectReference: {fileID: 0}
     - target: {fileID: 846401137376703290, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 846401137376703290, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.38268343
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 846401137376703290, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1624,15 +1627,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 846401137376703290, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 4.619999
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 846401137376703290, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -6.52
+      value: -13.8
       objectReference: {fileID: 0}
     - target: {fileID: 846401137376703290, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 848801868536763060, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_Name
@@ -1677,6 +1680,18 @@ PrefabInstance:
     - target: {fileID: 2179825842442803230, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 599
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124727801027791855, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
+      propertyPath: m_text
+      value: 'A snake has cornered your best friend''s pet hamster. What do you do?
+
+
+        1)
+        Pull the snake to let the hamster get away, and risk being bit
+
+
+        2)
+        Leave the hamster, your safety is more important'
       objectReference: {fileID: 0}
     - target: {fileID: 6124727801027791855, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_fontColor.a
@@ -1776,7 +1791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7621650561047105378, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.939
+      value: 1.478
       objectReference: {fileID: 0}
     - target: {fileID: 7621650561047105378, guid: 4ed2d1c98d40356409b0edb63392f14c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

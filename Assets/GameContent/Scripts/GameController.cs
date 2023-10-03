@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
 
     Button buttonOne;
     Button buttonTwo;
-    GameObject roomOneHand;
+    public HandChanger roomOneHand;
 
     public InputDevice RController { get => rController; set => rController = value; }
     public InputDevice LController { get => lController; set => lController = value; }
@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
         {
             buttonOne.interactable = false;
         }
-        roomOneHand.SetActive(true);
+        roomOneHand.OnRoomEnter();
     }
 
     public void SetToRoomTwo()
@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour
 
     public void LeaveRoomOne()
     {
-        roomOneHand.SetActive(false);
+        roomOneHand.OnRoomExit();
         SetGameEnds();
     }
 
@@ -73,6 +73,7 @@ public class GameController : MonoBehaviour
 
     public void SetGameEnds()
     {
+        if (GameEnds) return;
         if(beenRoomOne && beenRoomTwo)
         {
             gameEnds = true;
@@ -88,10 +89,9 @@ public class GameController : MonoBehaviour
     {
         buttonOne = GameObject.Find("Sign/Canvas/Button").GetComponent<Button>();
         buttonTwo = GameObject.Find("Sign/Canvas1/Button").GetComponent<Button>();
-        roomOneHand = GameObject.Find("LollipopRoom/Hand");
+        roomOneHand = GameObject.Find("Hand").GetComponent<HandChanger>();
         buttonOne.interactable = true;
         buttonTwo.interactable = true;
-        roomOneHand.SetActive(false);
     }
 
     // Update is called once per frame
