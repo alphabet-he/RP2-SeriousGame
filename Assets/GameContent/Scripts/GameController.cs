@@ -62,6 +62,7 @@ public class GameController : MonoBehaviour
     public void LeaveRoomOne()
     {
         roomOneHand.OnRoomExit();
+        SetGameEnds();
     }
 
     public void LeaveRoomTwo()
@@ -72,6 +73,7 @@ public class GameController : MonoBehaviour
 
     public void SetGameEnds()
     {
+        if (GameEnds) return;
         if(beenRoomOne && beenRoomTwo)
         {
             gameEnds = true;
