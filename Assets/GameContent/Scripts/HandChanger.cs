@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class HandChanger : MonoBehaviour, IChanger
 {
     public MeshRenderer meshRenderer;
+    public Transform lollipopAttach;
     public Quaternion handRotation;
     public Vector3 endPosition;
     Vector3 startPosition;
@@ -30,7 +31,6 @@ public class HandChanger : MonoBehaviour, IChanger
     public bool TriggerChange1(GameObject obj)
     {
         //Hit by Hammer
-        Debug.Log("Hit by Hammer");
         AudioManager.Instance.PlaySFX("Hammer");
         hitCount++;
         if(obj.transform.parent.transform.parent != null)
@@ -54,8 +54,6 @@ public class HandChanger : MonoBehaviour, IChanger
 
     public bool TriggerChange2(GameObject obj)
     {
-        Debug.Log("Hit by Lollipop");
-
         if (hitCount >= 3)
         {
             return false;
@@ -66,7 +64,7 @@ public class HandChanger : MonoBehaviour, IChanger
         GameObject.Destroy(obj.GetComponent<XRGrabInteractable>());
         GameObject.Destroy(obj.GetComponent<Rigidbody>());
         //Get the child lollipop attach point and place it there
-        obj.transform.position = gameObject.GetComponentsInChildren<Transform>()[0].position;
+        obj.transform.position = lollipopAttach.position;
         obj.transform.SetParent(gameObject.transform, true);
         heldItem = obj;
 
@@ -125,8 +123,6 @@ public class HandChanger : MonoBehaviour, IChanger
 
     void MoveHandOut()
     {
-        Debug.Log(endPosition);
-        Debug.Log(startPosition);
         if (transform.position != endPosition)
         {
             //Debug.Log(Vector3.MoveTowards(transform.position, endPosition, /*movementSpeed * */Time.deltaTime));
@@ -146,7 +142,6 @@ public class HandChanger : MonoBehaviour, IChanger
         }
         else
         {
-            Debug.Log(feedCount);
             shouldMoveBack = false;
             if(feedCount < 3)
             {

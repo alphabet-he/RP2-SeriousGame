@@ -374,6 +374,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29720098}
   m_CullTransparentMesh: 1
+--- !u!4 &45228697 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5689269209454010802, guid: f5484fc54c73b9f48b917778389e2561, type: 3}
+  m_PrefabInstance: {fileID: 113284766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &55222346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -789,6 +794,10 @@ PrefabInstance:
       propertyPath: handRotation.y
       value: 0.19936793
       objectReference: {fileID: 0}
+    - target: {fileID: 3346339115824086450, guid: f5484fc54c73b9f48b917778389e2561, type: 3}
+      propertyPath: lollipopAttach
+      value: 
+      objectReference: {fileID: 45228697}
     - target: {fileID: 5689269209454010802, guid: f5484fc54c73b9f48b917778389e2561, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0257
