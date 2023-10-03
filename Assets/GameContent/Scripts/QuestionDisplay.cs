@@ -15,7 +15,6 @@ public class QuestionDisplay : MonoBehaviour
 
     public void Refresh()
     {
-        Debug.Log("Refresing");
         List<Question> questions = GameData.questions;
         string newText = "";
         foreach (Question question in questions)
