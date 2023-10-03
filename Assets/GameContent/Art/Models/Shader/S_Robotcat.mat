@@ -401,7 +401,7 @@ Material:
     - _OcclusionStrength: 1
     - _Offset_X_Axis_BLD: -0.05
     - _Offset_Y_Axis_BLD: 0.09
-    - _Offset_Z: 2.3
+    - _Offset_Z: -0.56
     - _OutlineOverridden: 0
     - _OutlineVisible: 1
     - _Outline_Width: 21.2
@@ -503,7 +503,7 @@ Material:
     - _Unlit_Intensity: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _Use_1stAs2nd: 0
+    - _Use_1stAs2nd: 1
     - _Use_BaseAs1st: 0
     - _WorkflowMode: 1
     - _ZOverDrawMode: 0
@@ -520,8 +520,8 @@ Material:
     - _utsVersionY: 9
     - _utsVersionZ: 5
     m_Colors:
-    - _1st_ShadeColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
-    - _2nd_ShadeColor: {r: 0.2830189, g: 0.23362409, b: 0.23362409, a: 1}
+    - _1st_ShadeColor: {r: 0.56554824, g: 0.6698113, b: 0.6698113, a: 1}
+    - _2nd_ShadeColor: {r: 0.3962264, g: 0.248576, b: 0.248576, a: 1}
     - _AngelRingMaskColor: {r: 0, g: 1, b: 0, a: 1}
     - _AngelRing_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
