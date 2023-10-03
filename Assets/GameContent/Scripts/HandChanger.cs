@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandChanger : MonoBehaviour, IChanger
 {
+    public MeshRenderer meshRenderer;
     public Quaternion handRotation;
     public Vector3 endPosition;
     Vector3 startPosition;
@@ -18,13 +19,11 @@ public class HandChanger : MonoBehaviour, IChanger
     int feedCount = 0;
     GameObject heldItem;
     int handAnswer = 1;
-    MeshRenderer meshRenderer;
 
     void Start()
     {
         startPosition = transform.position;
         handAnswer = GameData.questions[0].questionResponse;
-        meshRenderer = gameObject.GetComponent<MeshRenderer>();
         meshRenderer.enabled = false;
     }
 

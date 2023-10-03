@@ -14,11 +14,11 @@ public class Question : MonoBehaviour
 
     public override string ToString()
     {
-        return question + '\n' + option1 + '\n' + option2;
+        return question + "\n\n" + option1 + "\n\n" + option2;
     }
 
     public string GetResultString()
     {
-        return question + '\n' + (questionResponse == 1 ? option1 : option2);
+        return question + "\n\n" + (questionResponse == 1 ? option1 : option2);
     }
 }
