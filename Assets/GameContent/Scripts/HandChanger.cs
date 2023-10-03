@@ -13,7 +13,7 @@ public class HandChanger : MonoBehaviour, IChanger
     public GameObject exitButton;
     Vector3 startPosition;
 
-    int questionNum = 0;
+    int questionNum = 1;
     private bool shouldMoveOut = false;
     private bool shouldMoveBack = false;
     private bool isHit = false;
@@ -46,6 +46,7 @@ public class HandChanger : MonoBehaviour, IChanger
             gameObject.AddComponent<Rigidbody>();
             exitButton.SetActive(true);
             GameData.questions[questionNum].roomPct = GetRoomPercent();
+            GameObject.Find("QuestionDisplay").GetComponent<QuestionDisplay>().Refresh();
             return true;
         }
 

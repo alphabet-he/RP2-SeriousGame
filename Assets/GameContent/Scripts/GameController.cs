@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour
     public HandChanger roomOneHand;
     public GameObject endingText;
 
+    public bool savedCat = false;
+
     public InputDevice RController { get => rController; set => rController = value; }
     public InputDevice LController { get => lController; set => lController = value; }
     public bool GameEnds { get => gameEnds; set => gameEnds = value; }
@@ -78,7 +80,35 @@ public class GameController : MonoBehaviour
     public void LeaveRoomTwo()
     {
         AudioManager.Instance.StopLoopSound();
-        SetGameEnds() ;
+        SetGameEnds();
+        //Check if you saved the cat and notify the statue
+        if (savedCat)
+        {
+            GameData.questions[0].roomResponse = 1;
+            //statue.Notify();
+        }
+        else
+        {
+            GameData.questions[0].roomResponse = 2;
+            //statue.Notify();
+
+            //If they didn't cut any ropes
+            if(GameData.questions[0].roomPct == -1)
+            {
+                //If they said they'd save the cat
+                if (GameData.questions[0].questionResponse == 1)
+                {
+                    //They didn't save it so 0%
+                    GameData.questions[0].roomPct = 0;
+                }
+                else
+                {
+                    //That's what they said so 100%
+                    GameData.questions[0].roomPct = 1;
+                }
+            }
+        }
+        GameObject.Find("QuestionDisplay").GetComponent<QuestionDisplay>().Refresh();
     }
 
     public void SetGameEnds()

@@ -71,6 +71,18 @@ public class SpiderRoomController : MonoBehaviour
         {
             SaveCat();
         }
+        //If they said they'd save the cat
+        if (GameData.questions[0].questionResponse == 1)
+        {
+            //The percentage will be the number of ropes they've cut divided by the total ropes
+            GameData.questions[0].roomPct = (float)(4 - robeNums) / (float)4;
+        }
+        else
+        {
+            //If they didn't say they'd save it then the percentage will be the number of ropes they
+            //Left divided by the total ropes
+            GameData.questions[0].roomPct = (float)robeNums / (float)4;
+        }
     }
 
     void SaveCat()
@@ -83,5 +95,6 @@ public class SpiderRoomController : MonoBehaviour
         AudioManager.Instance.StopLoopSound();
         buttonText.text = "You saved the cat!\r\nIt will meet you outside\r\n↓↓↓";
         //Debug.Log("Dog saved!");
+        GameController.instance.savedCat = true;
     }
 }

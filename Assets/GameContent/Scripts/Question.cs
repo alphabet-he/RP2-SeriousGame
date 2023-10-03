@@ -10,7 +10,7 @@ public class Question : MonoBehaviour
     public string option2;
     public int questionResponse;
     public int roomResponse;
-    public float roomPct;
+    public float roomPct = -1;
 
     public override string ToString()
     {
@@ -19,6 +19,10 @@ public class Question : MonoBehaviour
 
     public string GetResultString()
     {
+        if (roomPct != -1)
+        {
+            return question + "\n\n" + (questionResponse == 1 ? option1 : option2) + String.Format(" {0:P0}", roomPct);
+        }
         return question + "\n\n" + (questionResponse == 1 ? option1 : option2);
     }
 }
