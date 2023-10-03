@@ -11,18 +11,21 @@ public class HandChanger : MonoBehaviour, IChanger
     Vector3 startPosition;
 
     int questionNum = 0;
-    private bool shouldMoveOut = true;
+    private bool shouldMoveOut = false;
     private bool shouldMoveBack = false;
     private bool isHit = false;
     int hitCount = 0;
     int feedCount = 0;
     GameObject heldItem;
     int handAnswer = 1;
+    MeshRenderer meshRenderer;
 
     void Start()
     {
         startPosition = transform.position;
         handAnswer = GameData.questions[0].questionResponse;
+        meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        meshRenderer.enabled = false;
     }
 
     public bool TriggerChange1(GameObject obj)
@@ -76,6 +79,17 @@ public class HandChanger : MonoBehaviour, IChanger
             return true;
         }
         return false;
+    }
+
+    public void OnRoomEnter()
+    {
+        meshRenderer.enabled = true;
+        shouldMoveOut = true;
+    }
+
+    public void OnRoomExit() 
+    {
+        meshRenderer.enabled = false;
     }
 
     float GetRoomPercent()
