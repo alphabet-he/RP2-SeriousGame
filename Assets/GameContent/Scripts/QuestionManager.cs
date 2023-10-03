@@ -9,6 +9,8 @@ public class QuestionManager : MonoBehaviour
 {
     public GameObject optionButton1;
     public GameObject optionButton2;
+    public GameObject continueButton;
+    public GameObject startText;
     public List<Question> questions;
 
     int questionNum = 0;
@@ -20,8 +22,22 @@ public class QuestionManager : MonoBehaviour
         btn1.onClick.AddListener(OnClick1);
         Button btn2 = optionButton2.GetComponent<Button>();
         btn2.onClick.AddListener(OnClick2);
+        Button continueBtn = continueButton.GetComponent<Button>();
+        continueBtn.onClick.AddListener(ContinuePressed);
 
+        optionButton1.SetActive(false);
+        optionButton2.SetActive(false);
+
+        gameObject.GetComponent<TextMeshPro>().text = "";
+    }
+
+    void ContinuePressed()
+    {
         gameObject.GetComponent<TextMeshPro>().text = questions[questionNum].ToString();
+        startText.GetComponent<TextMeshPro>().text = "";
+        continueButton.SetActive(false);
+        optionButton1.SetActive(true);
+        optionButton2.SetActive(true);
     }
 
     void Update()
