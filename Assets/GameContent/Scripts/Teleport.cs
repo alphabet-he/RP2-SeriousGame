@@ -33,12 +33,14 @@ public class Teleport : MonoBehaviour
     {
         MovePosition(RoomOneTeleport);
         MoveRotation(RoomOneRotation);
+        GameController.instance.SetToRoomOne();
     }
 
     public void ToRoomTwo()
     {
         MovePosition(RoomTwoTeleport);
         MoveRotation(RoomTwoRotation);
+        GameController.instance.SetToRoomTwo();
     }
 
     public void ToOrigin()

@@ -109,8 +109,12 @@ public class Robe : MonoBehaviour
         {
             gameObject.SetActive(false);
             SpiderRoomController.instance.CutOutRobe();
+            AudioManager.Instance.PlaySFX("RopeCutFull");
         }
-
+        else
+        {
+            AudioManager.Instance.PlaySFX("RopeCutPartial");
+        }
     }
 
     private void OnTriggerEnter(Collider other)

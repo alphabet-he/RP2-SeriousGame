@@ -43,6 +43,10 @@ public class SpiderRoomController : MonoBehaviour
 
     public void CutOnce()
     {
+/*        if(spiderRows.Count == 0)
+        {
+            AudioManager.Instance.PlayLoopSound("Spider");
+        }*/
         // move existing spiders
         foreach (GameObject go in spiderRows)
         {
@@ -66,10 +70,5 @@ public class SpiderRoomController : MonoBehaviour
     void SaveDog()
     {
         Debug.Log("Dog saved!");
-    }
-
-    void TeleportBack()
-    {
-
     }
 }

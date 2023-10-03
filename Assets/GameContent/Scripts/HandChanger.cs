@@ -28,6 +28,8 @@ public class HandChanger : MonoBehaviour, IChanger
     public bool TriggerChange1(GameObject obj)
     {
         //Hit by Hammer
+        Debug.Log("Hit by Hammer");
+        AudioManager.Instance.PlaySFX("Hammer");
         hitCount++;
         if(obj.transform.parent.transform.parent != null)
         {
@@ -50,7 +52,9 @@ public class HandChanger : MonoBehaviour, IChanger
 
     public bool TriggerChange2(GameObject obj)
     {
-        if(hitCount >= 3)
+        Debug.Log("Hit by Lollipop");
+
+        if (hitCount >= 3)
         {
             return false;
         }
@@ -109,10 +113,10 @@ public class HandChanger : MonoBehaviour, IChanger
     void MoveHandOut()
     {
         Debug.Log(endPosition);
-        //Debug.Log(startPosition);
+        Debug.Log(startPosition);
         if (transform.position != endPosition)
         {
-            Debug.Log(Vector3.MoveTowards(transform.position, endPosition, /*movementSpeed * */Time.deltaTime));
+            //Debug.Log(Vector3.MoveTowards(transform.position, endPosition, /*movementSpeed * */Time.deltaTime));
             transform.position = Vector3.MoveTowards(transform.position, endPosition, /*movementSpeed * */Time.deltaTime);
         }
         else
