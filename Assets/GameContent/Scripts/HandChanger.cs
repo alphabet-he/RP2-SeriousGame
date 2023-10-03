@@ -6,12 +6,13 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandChanger : MonoBehaviour, IChanger
 {
+    public MeshRenderer meshRenderer;
     public Quaternion handRotation;
     public Vector3 endPosition;
     Vector3 startPosition;
 
     int questionNum = 0;
-    private bool shouldMoveOut = true;
+    private bool shouldMoveOut = false;
     private bool shouldMoveBack = false;
     private bool isHit = false;
     int hitCount = 0;
@@ -23,6 +24,7 @@ public class HandChanger : MonoBehaviour, IChanger
     {
         startPosition = transform.position;
         handAnswer = GameData.questions[0].questionResponse;
+        meshRenderer.enabled = false;
     }
 
     public bool TriggerChange1(GameObject obj)
@@ -76,6 +78,17 @@ public class HandChanger : MonoBehaviour, IChanger
             return true;
         }
         return false;
+    }
+
+    public void OnRoomEnter()
+    {
+        meshRenderer.enabled = true;
+        shouldMoveOut = true;
+    }
+
+    public void OnRoomExit() 
+    {
+        meshRenderer.enabled = false;
     }
 
     float GetRoomPercent()

@@ -42,7 +42,7 @@ public class QuestionManager : MonoBehaviour
                     GameData.questions = questions;
 
                     //Move to new scene
-                    SceneManager.LoadScene("GameScene");
+                    SceneManager.LoadScene("Anastasiia");
                 }
                 else
                 {
