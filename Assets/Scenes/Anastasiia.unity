@@ -1202,6 +1202,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0887f6f9d1bcc33468f1d6a67407b751, type: 2}
+    - target: {fileID: -7550008384720143160, guid: d872a0b75f47c2849af30643656379c2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bbc15c3e76a34b4495c64a060695ced, type: 2}
     - target: {fileID: -7141993110739969530, guid: d872a0b75f47c2849af30643656379c2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1222,6 +1226,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0887f6f9d1bcc33468f1d6a67407b751, type: 2}
+    - target: {fileID: -4641387622990697576, guid: d872a0b75f47c2849af30643656379c2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bbc15c3e76a34b4495c64a060695ced, type: 2}
     - target: {fileID: -4570386048317839908, guid: d872a0b75f47c2849af30643656379c2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1251,6 +1259,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 0887f6f9d1bcc33468f1d6a67407b751, type: 2}
     - target: {fileID: -3591534179007351737, guid: d872a0b75f47c2849af30643656379c2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bbc15c3e76a34b4495c64a060695ced, type: 2}
+    - target: {fileID: -3526503190854756848, guid: d872a0b75f47c2849af30643656379c2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bbc15c3e76a34b4495c64a060695ced, type: 2}
+    - target: {fileID: -2964448968426960896, guid: d872a0b75f47c2849af30643656379c2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6bbc15c3e76a34b4495c64a060695ced, type: 2}
