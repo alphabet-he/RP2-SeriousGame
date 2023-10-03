@@ -159,11 +159,13 @@ public class HandChanger : MonoBehaviour, IChanger
     void MoveHandHit()
     {
         transform.rotation = Random.rotation;
+        gameObject.GetComponent<MeshCollider>().enabled = false;
     }
 
     void StopHandHit()
     {
         transform.rotation = handRotation;
         isHit = false;
+        gameObject.GetComponent<MeshCollider>().enabled = true;
     }
 }

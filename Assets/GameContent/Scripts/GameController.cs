@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
     Button buttonOne;
     Button buttonTwo;
     public HandChanger roomOneHand;
+    public GameObject endingText;
 
     public InputDevice RController { get => rController; set => rController = value; }
     public InputDevice LController { get => lController; set => lController = value; }
@@ -90,6 +91,7 @@ public class GameController : MonoBehaviour
             buttonTwo.interactable = true;
             sign1.GetComponent<MeshRenderer>().material = sign1BrightShader;
             sign2.GetComponent<MeshRenderer>().material = sign2BrightShader;
+            endingText.SetActive(true);
         }
         
     }
