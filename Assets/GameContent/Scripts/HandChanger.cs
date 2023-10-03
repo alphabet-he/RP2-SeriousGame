@@ -57,6 +57,7 @@ public class HandChanger : MonoBehaviour, IChanger
 
     public bool TriggerChange2(GameObject obj)
     {
+        AudioManager.Instance.PlaySFX("Lollipop");
         if (hitCount >= 3)
         {
             return false;

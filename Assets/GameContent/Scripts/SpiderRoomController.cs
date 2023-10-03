@@ -1,6 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpiderRoomController : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class SpiderRoomController : MonoBehaviour
 
     int robeNums;
     List<GameObject> spiderRows = new List<GameObject>();
+    public GameObject buttonTextObject;
+    TextMeshProUGUI buttonText;
 
     private void Awake()
     {
@@ -32,7 +36,8 @@ public class SpiderRoomController : MonoBehaviour
     void Start()
     {
         robeNums = transform.childCount;
-        Debug.Log(robeNums);
+        buttonText = buttonTextObject.GetComponent<TextMeshProUGUI>();
+        //Debug.Log(robeNums);
     }
 
     // Update is called once per frame
@@ -43,10 +48,11 @@ public class SpiderRoomController : MonoBehaviour
 
     public void CutOnce()
     {
-/*        if(spiderRows.Count == 0)
+        if(spiderRows.Count == 0)
         {
             AudioManager.Instance.PlayLoopSound("Spider");
-        }*/
+            buttonText.text = "Spiders...????\r\nLeave the damn cat\r\n↓↓↓";
+        }
         // move existing spiders
         foreach (GameObject go in spiderRows)
         {
@@ -63,12 +69,19 @@ public class SpiderRoomController : MonoBehaviour
         robeNums--;
         if(robeNums <= 0) // all robes are cut out
         {
-            SaveDog();
+            SaveCat();
         }
     }
 
-    void SaveDog()
+    void SaveCat()
     {
-        Debug.Log("Dog saved!");
+        foreach (GameObject go in spiderRows)
+        {
+            Destroy(go);
+        }
+        spiderRows.Clear();
+        AudioManager.Instance.StopLoopSound();
+        buttonText.text = "You saved the cat!\r\nIt will meet you outside\r\n↓↓↓";
+        //Debug.Log("Dog saved!");
     }
 }
