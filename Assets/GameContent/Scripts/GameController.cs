@@ -9,12 +9,19 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
 
+
     InputDevice rController;
     InputDevice lController;
 
     bool gameEnds = false;
     bool beenRoomOne = false;
     bool beenRoomTwo = false;
+
+    public GameObject sign1;
+    public GameObject sign2;
+    public Material sign1BrightShader;
+    public Material sign2BrightShader;
+    public Material signdDarkShader;
 
     Button buttonOne;
     Button buttonTwo;
@@ -44,6 +51,7 @@ public class GameController : MonoBehaviour
         beenRoomOne = true;
         if (!GameEnds)
         {
+            sign1.GetComponent<MeshRenderer>().material = signdDarkShader;
             buttonOne.interactable = false;
         }
         roomOneHand.OnRoomEnter();
@@ -54,6 +62,7 @@ public class GameController : MonoBehaviour
         beenRoomTwo=true;
         if (!GameEnds)
         {
+            sign2.GetComponent<MeshRenderer>().material = signdDarkShader;
             buttonTwo.interactable = false;
         }
         
@@ -79,6 +88,8 @@ public class GameController : MonoBehaviour
             gameEnds = true;
             buttonOne.interactable = true;
             buttonTwo.interactable = true;
+            sign1.GetComponent<MeshRenderer>().material = sign1BrightShader;
+            sign2.GetComponent<MeshRenderer>().material = sign2BrightShader;
         }
         
     }
