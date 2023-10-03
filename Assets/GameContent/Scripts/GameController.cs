@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     InputDevice lController;
 
     bool gameEnds = false;
+    bool beenRoomOne = false;
+    bool beenRoomTwo = false;
 
     Button buttonOne;
     Button buttonTwo;
@@ -39,6 +41,7 @@ public class GameController : MonoBehaviour
 
     public void SetToRoomOne()
     {
+        beenRoomOne = true;
         if (!GameEnds)
         {
             buttonOne.interactable = false;
@@ -48,6 +51,7 @@ public class GameController : MonoBehaviour
 
     public void SetToRoomTwo()
     {
+        beenRoomTwo=true;
         if (!GameEnds)
         {
             buttonTwo.interactable = false;
@@ -58,18 +62,24 @@ public class GameController : MonoBehaviour
     public void LeaveRoomOne()
     {
         roomOneHand.SetActive(false);
+        SetGameEnds();
     }
 
     public void LeaveRoomTwo()
     {
         AudioManager.Instance.StopLoopSound();
+        SetGameEnds() ;
     }
 
     public void SetGameEnds()
     {
-        gameEnds = true;
-        buttonOne.interactable = true;
-        buttonTwo.interactable = true;
+        if(beenRoomOne && beenRoomTwo)
+        {
+            gameEnds = true;
+            buttonOne.interactable = true;
+            buttonTwo.interactable = true;
+        }
+        
     }
 
 
