@@ -845,7 +845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2928451340400588631, guid: f5484fc54c73b9f48b917778389e2561, type: 3}
       propertyPath: m_Name
-      value: Hand (1)
+      value: Hand
       objectReference: {fileID: 0}
     - target: {fileID: 3346339115824086450, guid: f5484fc54c73b9f48b917778389e2561, type: 3}
       propertyPath: meshRenderer
@@ -25364,21 +25364,8 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3771746169526038487, guid: ea24dfa73d659204595cc6d3ff5ebccd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1152238907}
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: ea24dfa73d659204595cc6d3ff5ebccd, type: 3}
---- !u!1 &1152238906 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3771746169526038487, guid: ea24dfa73d659204595cc6d3ff5ebccd, type: 3}
-  m_PrefabInstance: {fileID: 1152238905}
-  m_PrefabAsset: {fileID: 0}
---- !u!33 &1152238907
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1152238906}
-  m_Mesh: {fileID: 0}
 --- !u!1 &1154720228
 GameObject:
   m_ObjectHideFlags: 0
