@@ -254,8 +254,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _1st2nd_Shades_Feather: 0.084
-    - _1st_ShadeColor_Feather: 0.0001
-    - _1st_ShadeColor_Step: 0.294
+    - _1st_ShadeColor_Feather: 0.055
+    - _1st_ShadeColor_Step: 0.086
     - _2nd_ShadeColor_Feather: 0.084
     - _2nd_ShadeColor_Step: 0.183
     - _AORemapMax: 1
@@ -287,8 +287,8 @@ Material:
     - _AutoRenderQueue: 1
     - _BaseColorOverridden: 0
     - _BaseColorVisible: 1
-    - _BaseColor_Step: 0.294
-    - _BaseShade_Feather: 0.0001
+    - _BaseColor_Step: 0.086
+    - _BaseShade_Feather: 0.055
     - _Base_Speed: 0
     - _Blend: 0
     - _BlendMode: 0
@@ -394,9 +394,9 @@ Material:
     - _Is_LightColor_Outline: 1
     - _Is_LightColor_RimLight: 1
     - _Is_NormalMapForMatCap: 0
-    - _Is_NormalMapToBase: 1
-    - _Is_NormalMapToHighColor: 1
-    - _Is_NormalMapToRimLight: 1
+    - _Is_NormalMapToBase: 0
+    - _Is_NormalMapToHighColor: 0
+    - _Is_NormalMapToRimLight: 0
     - _Is_Ortho: 0
     - _Is_OutlineTex: 0
     - _Is_PingPong_Base: 0
@@ -449,7 +449,7 @@ Material:
     - _Scroll_EmissiveV: 0
     - _SecondShadeOverridden: 0
     - _SecondShadeVisible: 1
-    - _Set_SystemShadowsToBase: 1
+    - _Set_SystemShadowsToBase: 0
     - _ShadeColor_Step: 0.183
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
@@ -503,7 +503,7 @@ Material:
     - _Tweak_MatcapMaskLevel: 0
     - _Tweak_RimLightMaskLevel: 0
     - _Tweak_ShadingGradeMapLevel: 0
-    - _Tweak_SystemShadowsLevel: -0.27
+    - _Tweak_SystemShadowsLevel: -0.341
     - _Tweak_transparency: 0
     - _UVBase: 0
     - _UVDetail: 0
@@ -529,8 +529,8 @@ Material:
     - _utsVersionY: 9
     - _utsVersionZ: 5
     m_Colors:
-    - _1st_ShadeColor: {r: 0.4811321, g: 0.42439482, b: 0.42969608, a: 1}
-    - _2nd_ShadeColor: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
+    - _1st_ShadeColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+    - _2nd_ShadeColor: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
     - _AngelRingMaskColor: {r: 0, g: 1, b: 0, a: 1}
     - _AngelRing_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
