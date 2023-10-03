@@ -10,6 +10,7 @@ public class HandChanger : MonoBehaviour, IChanger
     public Transform lollipopAttach;
     public Quaternion handRotation;
     public Vector3 endPosition;
+    public GameObject exitButton;
     Vector3 startPosition;
 
     int questionNum = 0;
@@ -24,8 +25,9 @@ public class HandChanger : MonoBehaviour, IChanger
     void Start()
     {
         startPosition = transform.position;
-        handAnswer = GameData.questions[0].questionResponse;
         meshRenderer.enabled = false;
+        exitButton.SetActive(false);
+        handAnswer = GameData.questions[0].questionResponse;
     }
 
     public bool TriggerChange1(GameObject obj)
@@ -42,6 +44,7 @@ public class HandChanger : MonoBehaviour, IChanger
         if (hitCount >= 3)
         {
             gameObject.AddComponent<Rigidbody>();
+            exitButton.SetActive(true);
             GameData.questions[questionNum].roomPct = GetRoomPercent();
             return true;
         }
@@ -72,6 +75,7 @@ public class HandChanger : MonoBehaviour, IChanger
 
         if (feedCount >= 3)
         {
+            exitButton.SetActive(true);
             GameData.questions[questionNum].roomPct = GetRoomPercent();
             return true;
         }
