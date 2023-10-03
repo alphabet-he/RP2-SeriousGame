@@ -17,6 +17,9 @@ public class SpiderRoomController : MonoBehaviour
     public GameObject buttonTextObject;
     TextMeshProUGUI buttonText;
 
+    public GameObject catHappyFace;
+    public GameObject catNormalFace;
+
     private void Awake()
     {
 
@@ -37,6 +40,8 @@ public class SpiderRoomController : MonoBehaviour
     {
         robeNums = transform.childCount;
         buttonText = buttonTextObject.GetComponent<TextMeshProUGUI>();
+        catHappyFace.SetActive(false);
+        catNormalFace.SetActive(true);
         //Debug.Log(robeNums);
     }
 
@@ -92,6 +97,8 @@ public class SpiderRoomController : MonoBehaviour
             Destroy(go);
         }
         spiderRows.Clear();
+        catHappyFace.SetActive(true);
+        catNormalFace.SetActive(false);
         AudioManager.Instance.StopLoopSound();
         buttonText.text = "You saved the cat!\r\nIt will meet you outside\r\n↓↓↓";
         //Debug.Log("Dog saved!");
