@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameController : MonoBehaviour
 {
@@ -27,6 +29,7 @@ public class GameController : MonoBehaviour
     Button buttonTwo;
     public HandChanger roomOneHand;
     public GameObject endingText;
+    public GameObject roomTwoButton;
 
     bool saveCat = false;
     bool giveLollipop = false;
@@ -76,7 +79,6 @@ public class GameController : MonoBehaviour
             sign2.GetComponent<MeshRenderer>().material = signdDarkShader;
             buttonTwo.interactable = false;
         }
-        
     }
 
     public void LeaveRoomOne()
@@ -90,6 +92,10 @@ public class GameController : MonoBehaviour
 
     public void LeaveRoomTwo()
     {
+        //Make it so the player can interact with the button when they come back
+        roomTwoButton.GetComponent<XRGrabInteractable>().enabled = true;
+
+
         AudioManager.Instance.StopLoopSound();
         if (GameEnds) return;
         SetGameEnds();
@@ -135,6 +141,12 @@ public class GameController : MonoBehaviour
             endingText.SetActive(true);
         }
         
+    }
+
+    public void RoomTwoButtonHelper()
+    {
+        //This is called when the room two button is pressed so that they player doesn't take it with them
+        roomTwoButton.GetComponent<XRGrabInteractable>().enabled = false;
     }
 
 
