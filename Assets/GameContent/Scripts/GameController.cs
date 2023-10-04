@@ -28,11 +28,19 @@ public class GameController : MonoBehaviour
     public HandChanger roomOneHand;
     public GameObject endingText;
 
-    public bool savedCat = false;
+    bool saveCat = false;
+    bool giveLollipop = false;
+
+    GameObject statueCat;
+    GameObject statueSpider;
+    GameObject statueHammer;
+    GameObject statueLollipop;
 
     public InputDevice RController { get => rController; set => rController = value; }
     public InputDevice LController { get => lController; set => lController = value; }
     public bool GameEnds { get => gameEnds; set => gameEnds = value; }
+    public bool SaveCat { get => saveCat; set => saveCat = value; }
+    public bool GiveLollipop { get => giveLollipop; set => giveLollipop = value; }
 
     private void Awake()
     {
@@ -74,23 +82,27 @@ public class GameController : MonoBehaviour
     public void LeaveRoomOne()
     {
         roomOneHand.OnRoomExit();
+        if (GameEnds) return;
         SetGameEnds();
+        if(giveLollipop) { statueLollipop.SetActive(true); }
+        else { statueHammer.SetActive(true); }
     }
 
     public void LeaveRoomTwo()
     {
         AudioManager.Instance.StopLoopSound();
+        if (GameEnds) return;
         SetGameEnds();
         //Check if you saved the cat and notify the statue
-        if (savedCat)
+        if (SaveCat)
         {
             GameData.questions[0].roomResponse = 1;
-            //statue.Notify();
+            statueCat.SetActive(true);
         }
         else
         {
             GameData.questions[0].roomResponse = 2;
-            //statue.Notify();
+            statueSpider.SetActive(true);
 
             //If they didn't cut any ropes
             if(GameData.questions[0].roomPct == -1)
@@ -113,7 +125,6 @@ public class GameController : MonoBehaviour
 
     public void SetGameEnds()
     {
-        if (GameEnds) return;
         if(beenRoomOne && beenRoomTwo)
         {
             gameEnds = true;
@@ -135,6 +146,14 @@ public class GameController : MonoBehaviour
         roomOneHand = GameObject.Find("Hand").GetComponent<HandChanger>();
         buttonOne.interactable = true;
         buttonTwo.interactable = true;
+        statueCat = GameObject.Find("Statue/Cat");
+        statueSpider = GameObject.Find("Statue/Spider");
+        statueHammer = GameObject.Find("Statue/Hammer");
+        statueLollipop = GameObject.Find("Statue/Lollipop");
+        statueCat.SetActive(false);
+        statueSpider.SetActive(false);
+        statueHammer.SetActive(false);
+        statueLollipop.SetActive(false);
     }
 
     // Update is called once per frame

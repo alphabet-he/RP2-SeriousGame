@@ -20,20 +20,20 @@ public class Receiver : MonoBehaviour
     {
         //Check other's tag/name, based on tag/name call TriggerChange1 or TriggerChange2
         //TriggerChange1 and TriggerChange2 call into a different script that can be created based on what each receiver wants to do
-        if (other.gameObject.tag == option1)
+        if (other.gameObject.tag == option1) // hit by hammer
         {
-            if(changer.TriggerChange1(other.gameObject))
+            if(changer.TriggerChange1(other.gameObject)) 
             {
                 GameData.questions[questionNum].roomResponse = 1;
-                statue.Notify();
+                GameController.instance.GiveLollipop = false;
             }
         }
-        else if (other.gameObject.tag == option2)
+        else if (other.gameObject.tag == option2) // give lollipop
         {
             if(changer.TriggerChange2(other.gameObject))
             {
                 GameData.questions[questionNum].roomResponse = 2;
-                statue.Notify();
+                GameController.instance.GiveLollipop = true;
             }
         }
     }

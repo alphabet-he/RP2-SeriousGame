@@ -102,6 +102,6 @@ public class SpiderRoomController : MonoBehaviour
         AudioManager.Instance.StopLoopSound();
         buttonText.text = "You saved the cat!\r\nIt will meet you outside\r\n↓↓↓";
         //Debug.Log("Dog saved!");
-        GameController.instance.savedCat = true;
+        GameController.instance.SaveCat = true;
     }
 }
