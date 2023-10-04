@@ -56,7 +56,7 @@ public class SpiderRoomController : MonoBehaviour
         if(spiderRows.Count == 0)
         {
             AudioManager.Instance.PlayLoopSound("Spider");
-            buttonText.text = "Spiders...????\r\nLeave the damn cat\r\n↓↓↓";
+            buttonText.text = "Wow, spiders.\r\nNow wanna leave the room?\r\nThe button is just here.";
         }
         // move existing spiders
         foreach (GameObject go in spiderRows)
@@ -100,8 +100,7 @@ public class SpiderRoomController : MonoBehaviour
         catHappyFace.SetActive(true);
         catNormalFace.SetActive(false);
         AudioManager.Instance.StopLoopSound();
-        buttonText.text = "You saved the cat!\r\nIt will meet you outside\r\n↓↓↓";
-        //Debug.Log("Dog saved!");
+        buttonText.text = "You really saved the cat.\r\nIt will meet you outside.\r\nPress the button to leave.";
         GameController.instance.SaveCat = true;
     }
 }
