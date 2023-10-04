@@ -33,6 +33,8 @@ public class HandChanger : MonoBehaviour, IChanger
     Vector3 lollipopPosition;
     GameObject lollipopRoomParent;
     TextMeshProUGUI choiceText;
+    TextMeshPro hammerCounter;
+    TextMeshPro lollipopCounter;
 
     void Start()
     {
@@ -43,7 +45,9 @@ public class HandChanger : MonoBehaviour, IChanger
         lollipopRoomParent = GameObject.Find("LollipopRoom");
         hammerPosition = lollipopRoomParent.transform.Find("Hammer").position;
         lollipopPosition = lollipopRoomParent.transform.Find("Lollipop").position;
-        choiceText = lollipopRoomParent.transform.Find("Canvas").GetChild(0).GetComponent<TextMeshProUGUI>();
+        choiceText = lollipopRoomParent.transform.Find("Statue2/Canvas").GetChild(0).GetComponent<TextMeshProUGUI>();
+        hammerCounter = lollipopRoomParent.transform.Find("Statue2/HammerCounter").GetComponent<TextMeshPro>();
+        lollipopCounter = lollipopRoomParent.transform.Find("Statue2/LollipopCounter").GetComponent<TextMeshPro>();
 
         handAnswer = GameData.questions[0].questionResponse;
         
@@ -59,7 +63,9 @@ public class HandChanger : MonoBehaviour, IChanger
         {
             Destroy(obj.transform.parent.transform.parent.gameObject);
         }
-        Destroy(obj); 
+        Destroy(obj);
+
+        hammerCounter.text = (3 - hitCount).ToString();
 
         if (hitCount >= 3)
         {
@@ -98,6 +104,8 @@ public class HandChanger : MonoBehaviour, IChanger
         obj.transform.position = lollipopAttach.position;
         obj.transform.SetParent(gameObject.transform, true);
         heldItem = obj;
+
+        lollipopCounter.text = (3 - feedCount).ToString();
 
         shouldMoveBack = true;
 

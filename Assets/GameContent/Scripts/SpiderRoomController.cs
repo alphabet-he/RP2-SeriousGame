@@ -56,7 +56,7 @@ public class SpiderRoomController : MonoBehaviour
         if(spiderRows.Count == 0)
         {
             AudioManager.Instance.PlayLoopSound("Spider");
-            buttonText.text = "Wow, spiders.\r\nNow wanna leave the room?\r\nThe button is just here.";
+            buttonText.text = "Wow, spiders.\r\nNow wanna leave the room?\r\nThe button is right here.";
         }
         // move existing spiders
         foreach (GameObject go in spiderRows)
