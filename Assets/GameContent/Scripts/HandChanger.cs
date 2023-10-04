@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.UIElements;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandChanger : MonoBehaviour, IChanger
@@ -13,6 +15,11 @@ public class HandChanger : MonoBehaviour, IChanger
     public GameObject exitButton;
     Vector3 startPosition;
 
+    public GameObject HammerPrefab;
+    public GameObject LollipopPrefab;
+
+    
+
     int questionNum = 1;
     private bool shouldMoveOut = false;
     private bool shouldMoveBack = false;
@@ -22,12 +29,25 @@ public class HandChanger : MonoBehaviour, IChanger
     GameObject heldItem;
     int handAnswer = 1;
 
+    Vector3 hammerPosition;
+    Vector3 lollipopPosition;
+    GameObject lollipopRoomParent;
+    TextMeshProUGUI choiceText;
+
     void Start()
     {
         startPosition = transform.position;
         meshRenderer.enabled = false;
         exitButton.SetActive(false);
+
+        lollipopRoomParent = GameObject.Find("LollipopRoom");
+        hammerPosition = lollipopRoomParent.transform.Find("Hammer").position;
+        lollipopPosition = lollipopRoomParent.transform.Find("Lollipop").position;
+        choiceText = lollipopRoomParent.transform.Find("Canvas").GetChild(0).GetComponent<TextMeshProUGUI>();
+
         handAnswer = GameData.questions[0].questionResponse;
+        
+        //Debug.Log(lollipopRoomParent == null);
     }
 
     public bool TriggerChange1(GameObject obj)
@@ -37,18 +57,23 @@ public class HandChanger : MonoBehaviour, IChanger
         hitCount++;
         if(obj.transform.parent.transform.parent != null)
         {
-            GameObject.Destroy(obj.transform.parent.transform.parent.gameObject);
+            Destroy(obj.transform.parent.transform.parent.gameObject);
         }
-        GameObject.Destroy(obj);
+        Destroy(obj); 
 
         if (hitCount >= 3)
         {
             gameObject.AddComponent<Rigidbody>();
             exitButton.SetActive(true);
+            choiceText.text = "Your courage repelled the monster.\r\nThe button on the table can send you outside.";
             GameData.questions[questionNum].roomPct = GetRoomPercent();
             GameObject.Find("QuestionDisplay").GetComponent<QuestionDisplay>().Refresh();
             return true;
         }
+
+
+        (Instantiate(HammerPrefab, hammerPosition, Quaternion.identity) as GameObject).transform.parent = lollipopRoomParent.transform;
+        //Instantiate(HammerPrefab, hammerPosition, Quaternion.identity);
 
         isHit = true;
         Invoke(nameof(StopHandHit), .5f);
@@ -63,11 +88,12 @@ public class HandChanger : MonoBehaviour, IChanger
         {
             return false;
         }
+        (Instantiate(LollipopPrefab, lollipopPosition, Quaternion.identity) as GameObject).transform.parent = lollipopRoomParent.transform;
         //Given Lollipop
         feedCount++;
         //This makes the lollipop part of the hand and removes interactability
-        GameObject.Destroy(obj.GetComponent<XRGrabInteractable>());
-        GameObject.Destroy(obj.GetComponent<Rigidbody>());
+        Destroy(obj.GetComponent<XRGrabInteractable>());
+        Destroy(obj.GetComponent<Rigidbody>());
         //Get the child lollipop attach point and place it there
         obj.transform.position = lollipopAttach.position;
         obj.transform.SetParent(gameObject.transform, true);
@@ -78,6 +104,7 @@ public class HandChanger : MonoBehaviour, IChanger
         if (feedCount >= 3)
         {
             exitButton.SetActive(true);
+            choiceText.text = "I can see its happiness.\r\nThank you.\r\nThe button on the table can send you outside.";
             GameData.questions[questionNum].roomPct = GetRoomPercent();
             return true;
         }
@@ -153,7 +180,7 @@ public class HandChanger : MonoBehaviour, IChanger
             {
                 shouldMoveOut = true;
             }
-            GameObject.Destroy(heldItem);
+            Destroy(heldItem);
         }
     }
 

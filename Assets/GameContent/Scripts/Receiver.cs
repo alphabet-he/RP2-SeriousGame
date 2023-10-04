@@ -18,6 +18,7 @@ public class Receiver : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (GameController.instance.GameEnds) return;
         //Check other's tag/name, based on tag/name call TriggerChange1 or TriggerChange2
         //TriggerChange1 and TriggerChange2 call into a different script that can be created based on what each receiver wants to do
         if (other.gameObject.tag == option1) // hit by hammer
