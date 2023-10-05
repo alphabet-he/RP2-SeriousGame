@@ -21159,8 +21159,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 5, z: 5}
-  m_Center: {x: 0, y: -0.000000007450581, z: 6.9849193e-10}
+  m_Size: {x: 5, y: 5, z: 0.5}
+  m_Center: {x: 0, y: -0.000000007450581, z: 1}
 --- !u!33 &779247084
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -44817,7 +44817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca34a6148db2d54493f84f379293f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GroupID: 0
 --- !u!4 &1733410246
 Transform:
   m_ObjectHideFlags: 0
